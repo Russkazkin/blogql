@@ -17,4 +17,6 @@ mix.js('resources/js/app.js', 'public/js')
         require('postcss-import'),
         require('tailwindcss'),
         require('autoprefixer'),
-]);
+    ])
+    .browserSync('blogql.skazkin');
+
