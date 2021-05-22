@@ -20,6 +20,11 @@ class CreatePostsTable extends Migration
             $table->text('lead');
             $table->text('content');
 
+            $table->foreignId('author_id')->constrained('users');
+            $table->foreignId('topic_id')->constrained('topics');
+
+
+
             $table->timestamps();
         });
     }
@@ -31,6 +36,10 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
+        Schema::table('posts', function (Blueprint $table) {
+            $table->dropForeign(['author_id']);
+            $table->dropForeign(['topic_id']);
+        });
         Schema::dropIfExists('posts');
     }
 }
