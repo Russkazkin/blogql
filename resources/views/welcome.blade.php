@@ -9,7 +9,7 @@
 </head>
 <body>
 <div id="app">
-    <Index></Index>
+<router-view></router-view>
 </div>
 </body>
 </html>
