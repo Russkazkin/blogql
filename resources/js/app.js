@@ -1,11 +1,12 @@
+import './bootstrap';
+import 'alpinejs';
 import Vue from "vue";
-import Index from './components/Index'
+import VueRouter from 'vue-router';
 
-require('./bootstrap');
+import Index from './components/Index';
 
-require('alpinejs');
-
-window.Vue = require('vue');
+window.Vue = Vue;
+Vue.use(VueRouter);
 
 const app = new Vue({
   el: '#app',
