@@ -16,7 +16,7 @@ type User {
     id: ID!
     name: String!
     email: String!
-    posts: [Post!]!
+    posts: [Post!]! @hasMany
     created_at: DateTime!
     updated_at: DateTime!
 }
@@ -25,7 +25,7 @@ type Topic {
     id: ID!
     name: String!
     slug: String!
-    posts: [Post!]!
+    posts: [Post!]! @hasMany
     created_at: DateTime!
     updated_at: DateTime!
 }
@@ -37,6 +37,6 @@ type Post {
     lead: String!
     created_at: DateTime!
     updated_at: DateTime!
-    author: User!
-    topic: Topic!
+    author: User! @belongsTo
+    topic: Topic! @belongsTo
 }
