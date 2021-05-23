@@ -1,12 +1,23 @@
 <template>
-<div>
+  <div>
     Post List
-</div>
+  </div>
 </template>
 
 <script>
+import gql from 'graphql-tag';
+
 export default {
-    name: "PostList"
+  name: "PostList",
+  apollo: {
+    posts: gql`
+        {
+            posts {
+              id
+              title
+            }
+        }`,
+  },
 }
 </script>
 

@@ -19,7 +19,7 @@ const routes = [
 
 const apolloClient = new ApolloClient({
   // You should use an absolute URL here
-  uri: 'http://blogql.skazkin/graphql'
+  uri: 'http://localhost:3002/graphql',
 });
 
 const apolloProvider = new VueApollo({
