@@ -1,6 +1,10 @@
 <template>
   <div>
     Post List
+    <div v-if="$apollo.loading">Loading...</div>
+    <div v-else>
+      <div v-for="post in posts" :key="post.id">{{ post.title }}</div>
+    </div>
   </div>
 </template>
 
