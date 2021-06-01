@@ -3,7 +3,7 @@
     <h2 class="text-4xl">All posts</h2>
     <div v-if="$apollo.loading">Loading...</div>
     <div v-else>
-      <PostListItem v-for="post in posts" :key="post.id" :post="post"></PostListItem>
+      <PostListItem class="mt-10" v-for="post in posts" :key="post.id" :post="post"></PostListItem>
     </div>
   </div>
 </template>
@@ -23,6 +23,7 @@ export default {
             posts {
               id
               title
+              lead
             }
         }`,
   },
