@@ -3,16 +3,20 @@
     <h2 class="text-4xl">All posts</h2>
     <div v-if="$apollo.loading">Loading...</div>
     <div v-else>
-      <div v-for="post in posts" :key="post.id">{{ post.title }}</div>
+      <PostListItem v-for="post in posts" :key="post.id" :post="post"></PostListItem>
     </div>
   </div>
 </template>
 
 <script>
 import gql from 'graphql-tag';
+import PostListItem from "./PostListItem";
 
 export default {
   name: "PostList",
+  components: {
+    PostListItem,
+  },
   apollo: {
     posts: gql`
         {
