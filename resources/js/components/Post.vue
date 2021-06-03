@@ -18,8 +18,36 @@
 </template>
 
 <script>
+import gql from 'graphql-tag';
 export default {
-    name: "Post"
+  name: "Post",
+  apollo: {
+    post: {
+      query: gql`
+        query($id: ID!) {
+            post(id: $id) {
+                id
+                title
+                content
+                author {
+                    id
+                    name
+                    avatar
+                }
+                topic {
+                    name
+                    slug
+                }
+            }
+        }
+      `,
+      variables() {
+        return {
+          id: this.$route.params.id,
+        }
+      },
+    }
+  }
 }
 </script>
 
