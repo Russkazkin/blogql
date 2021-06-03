@@ -7,6 +7,7 @@ import VueApollo from 'vue-apollo'
 
 import PostList from "./components/PostList";
 import Post from "./components/Post";
+import TopicPostList from "./components/TopicPostList";
 
 window.Vue = Vue;
 Vue.use(VueApollo);
@@ -15,6 +16,7 @@ Vue.use(VueRouter);
 const routes = [
   {path: '/', name: 'home', component: PostList},
   {path: '/post/:id', name: 'post', component: Post},
+  {path: '/topics/:slug', name: 'topics', component: TopicPostList},
 ];
 
 const apolloClient = new ApolloClient({
