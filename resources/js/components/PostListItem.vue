@@ -4,7 +4,11 @@
       <h4 class="text-2xl pb-3 font-semibold hover:underline hover:text-blue-600">{{ post.title }}</h4>
     </router-link>
     <p class="text-gray-600 pb-3">{{ post.lead }}</p>
-    <div class="text-sm text-gray-600">By {{ post.author.name }} in
+    <div class="text-sm text-gray-600">By
+      <router-link class="underline hover:text-blue-600" :to="{name: 'authors', params: {id: post.author.id}}">
+        {{ post.author.name }}
+      </router-link>
+      in
       <router-link class="underline hover:text-blue-600" :to="{name: 'topics', params: {slug: post.topic.slug}}">
         {{ post.topic.name }}
       </router-link>
@@ -17,9 +21,9 @@
 export default {
   name: "PostListItem",
   props: {
-    post: Object,
+    post: Object
   }
-}
+};
 </script>
 
 <style scoped>
