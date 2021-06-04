@@ -10,7 +10,7 @@
         <router-link class="underline hover:text-blue-600" :to="{name: 'topics', params: {slug: post.topic.slug}}">
           {{ post.topic.name }}
         </router-link>
-        • 3 hours ago
+        • {{ post.created_at | timePassed }}
       </div>
       <h1 class="text-5xl mt-10 font-bold mb-12">{{ post.title }}</h1>
       <p class="text-gray-700 pb-3 mb-12 whitespace-pre-line">{{ post.content }}</p>
@@ -28,7 +28,7 @@
             <router-link class="underline hover:text-blue-600" :to="{name: 'topics', params: {slug: post.topic.slug}}">
               {{ post.topic.name }}
             </router-link>
-            on May 20, 2021
+            on {{ post.created_at | formattedDate }}
           </div>
         </div>
       </div>
@@ -49,6 +49,7 @@ export default {
                 id
                 title
                 content
+                created_at
                 author {
                     id
                     name
