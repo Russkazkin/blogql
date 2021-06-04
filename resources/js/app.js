@@ -4,12 +4,14 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import ApolloClient from "apollo-boost";
 import VueApollo from "vue-apollo";
+import moment from "moment";
 
 import PostList from "./components/PostList";
 import Post from "./components/Post";
 import TopicPostList from "./components/TopicPostList";
 import AuthorPostList from "./components/AuthorPostList";
-import moment from "moment";
+import NotFound from "./components/404"
+
 
 window.Vue = Vue;
 Vue.use(VueApollo);
@@ -20,6 +22,7 @@ const routes = [
   { path: "/post/:id", name: "post", component: Post },
   { path: "/authors/:id", name: "authors", component: AuthorPostList },
   { path: "/topics/:slug", name: "topics", component: TopicPostList },
+  { path: "*", name: "404", component: NotFound },
 ];
 
 const apolloClient = new ApolloClient({
