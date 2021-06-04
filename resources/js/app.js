@@ -9,6 +9,7 @@ import PostList from "./components/PostList";
 import Post from "./components/Post";
 import TopicPostList from "./components/TopicPostList";
 import AuthorPostList from "./components/AuthorPostList";
+import moment from "moment";
 
 window.Vue = Vue;
 Vue.use(VueApollo);
@@ -34,6 +35,9 @@ const router = new VueRouter({
   mode: "history",
   routes,
 });
+
+Vue.filter('timePassed', value => moment(value).fromNow());
+Vue.filter('formattedDate', value => moment(value).format('MMM Do, YYYY'));
 
 const app = new Vue({
   el: "#app",
