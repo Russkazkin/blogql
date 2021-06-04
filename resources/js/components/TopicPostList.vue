@@ -48,6 +48,9 @@ export default {
         return {
           slug: this.$route.params.slug
         }
+      },
+      error() {
+        this.$router.push({name: '404'});
       }
     }
   },
